@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shrimati Indira Gandhi College – Tiruchirappalli</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --burgundy: #7b2d9b;
+    --gold: #6a1b9a;
+    --gold-light: #f9a825;
+    --cream: #faf7ff;
+    --dark: #1a0030;
+    --mid: #7b2d9b;
+    --text: #1a0030;
+    --muted: #7b5ea7;
+    --white: #fff;
+    --border: rgba(123,45,155,0.18);
+    --accent: #f9a825;
+    --accent-light: #fff9e6;
+    --purple-light: #f3e5f5;
+    --purple-mid: #6a1b9a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; font-size:16px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    background:rgba(26,0,48,0.98); backdrop-filter:blur(12px);
+    border-bottom:2px solid var(--accent);
+    display:flex; align-items:center; justify-content:space-between;
+    padding:0 32px; height:66px;
+  }
+  .nav-logo { display:flex; align-items:center; gap:12px; cursor:pointer; }
+  .nav-logo .logo-icon {
+    width:42px; height:42px; border-radius:50%;
+    background:linear-gradient(135deg,var(--burgundy),var(--gold));
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Cormorant Garamond',serif; font-size:18px; color:#fff; font-weight:700;
+    border:2px solid var(--accent);
+  }
+  .nav-logo .logo-text { font-family:'Cormorant Garamond',serif; color:#fff; }
+  .nav-logo .logo-text span { display:block; font-size:16px; font-weight:700; letter-spacing:.5px; }
+  .nav-logo .logo-text small { font-size:11px; color:var(--accent); letter-spacing:1px; font-weight:300; }
+  .nav-links { display:flex; gap:6px; }
+  .nav-links a {
+    color:rgba(255,255,255,0.8); font-size:14px; font-weight:500;
+    padding:6px 14px; border-radius:6px; cursor:pointer;
+    transition:.2s; letter-spacing:.3px; text-decoration:none;
+  }
+  .nav-links a:hover, .nav-links a.active { color:var(--accent); background:rgba(249,168,37,0.12); }
+  .nav-cta {
+    background:linear-gradient(135deg,var(--burgundy),var(--gold));
+    color:#fff!important; border-radius:8px!important; font-weight:600!important;
+  }
+  .nav-cta:hover { opacity:.9; transform:translateY(-1px); }
+
+  /* ─── SECTIONS ─── */
+  section { display:none; min-height:100vh; padding-top:66px; }
+  section.active { display:block; }
+
+  /* ─── HERO ─── */
+  #home {
+    background:linear-gradient(160deg,var(--dark) 0%,var(--mid) 50%,#1a0030 100%);
+    position:relative; overflow:hidden;
+  }
+  .hero-pattern {
+    position:absolute; inset:0;
+    background-image:radial-gradient(circle at 20% 50%,rgba(123,45,155,0.12) 0%,transparent 60%),
+      radial-gradient(circle at 80% 20%,rgba(123,45,155,0.18) 0%,transparent 50%);
+  }
+  .hero-inner {
+    position:relative; max-width:1100px; margin:0 auto; padding:100px 32px 80px;
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+  }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:rgba(249,168,37,0.12); border:1px solid rgba(249,168,37,0.3);
+    color:var(--gold-light); padding:6px 16px; border-radius:20px;
+    font-size:12px; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; margin-bottom:24px;
+  }
+  .hero-title {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(36px,5vw,60px); font-weight:700; color:#fff;
+    line-height:1.15; margin-bottom:20px;
+  }
+  .hero-title em { color:var(--gold-light); font-style:italic; }
+  .hero-sub { color:rgba(255,255,255,0.65); font-size:16px; line-height:1.7; margin-bottom:36px; }
+  .hero-stats { display:flex; gap:32px; margin-bottom:40px; }
+  .hero-stat span { display:block; }
+  .hero-stat .num { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:700; color:var(--gold-light); }
+  .hero-stat .lbl { font-size:12px; color:rgba(255,255,255,0.5); letter-spacing:.5px; }
+  .hero-btns { display:flex; gap:14px; }
+  .btn-primary {
+    background:linear-gradient(135deg,var(--burgundy),var(--gold));
+    color:#fff; border:none; padding:13px 28px; border-radius:10px;
+    font-size:14px; font-weight:600; cursor:pointer; letter-spacing:.3px;
+    transition:.25s; box-shadow:0 6px 20px rgba(123,45,155,0.45);
+  }
+  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(123,45,155,0.55); }
+  .btn-outline {
+    background:transparent; color:var(--gold-light);
+    border:1.5px solid rgba(123,45,155,0.4); padding:13px 28px; border-radius:10px;
+    font-size:14px; font-weight:500; cursor:pointer; transition:.25s;
+  }
+  .btn-outline:hover { background:rgba(123,45,155,0.1); }
+
+  /* Hero Right – Cards */
+  .hero-right { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .feat-card {
+    background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1);
+    border-radius:14px; padding:20px; backdrop-filter:blur(8px);
+    transition:.3s;
+  }
+  .feat-card:hover { background:rgba(123,45,155,0.12); border-color:rgba(249,168,37,0.3); transform:translateY(-3px); }
+  .feat-card .icon { font-size:26px; margin-bottom:10px; }
+  .feat-card h4 { color:#fff; font-size:13px; font-weight:600; margin-bottom:5px; }
+  .feat-card p { color:rgba(255,255,255,0.5); font-size:11px; line-height:1.5; }
+  .feat-card.span2 { grid-column:1/-1; }
+
+  /* ─── PAGE SECTIONS ─── */
+  .page-hero {
+    background:linear-gradient(135deg,var(--dark),var(--mid));
+    padding:80px 32px 60px; text-align:center;
+  }
+  .page-hero h1 {
+    font-family:'Cormorant Garamond',serif; font-size:clamp(32px,5vw,52px);
+    color:#fff; font-weight:700;
+  }
+  .page-hero p { color:rgba(255,255,255,0.6); margin-top:12px; font-size:16px; }
+  .gold-line { width:60px; height:3px; background:linear-gradient(90deg,var(--burgundy),var(--gold)); margin:16px auto 0; border-radius:2px; }
+
+  .content-wrap { max-width:1100px; margin:0 auto; padding:60px 32px; }
+  .section-title {
+    font-family:'Cormorant Garamond',serif; font-size:clamp(26px,4vw,40px);
+    color:var(--dark); font-weight:700; margin-bottom:8px;
+  }
+  .section-title span { color:var(--burgundy); }
+  .section-sub { color:var(--muted); font-size:16px; margin-bottom:40px; }
+
+  /* cards */
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .card {
+    background:#fff; border:1px solid var(--border); border-radius:16px; padding:28px;
+    transition:.3s; position:relative; overflow:hidden;
+  }
+  .card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,var(--burgundy),var(--gold)); transform:scaleX(0);
+    transition:.3s; transform-origin:left;
+  }
+  .card:hover::before { transform:scaleX(1); }
+  .card:hover { box-shadow:0 8px 32px rgba(123,45,155,0.14); transform:translateY(-3px); }
+  .card-icon { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:22px; margin-bottom:16px; }
+  .icon-red { background:rgba(123,45,155,0.1); }
+  .icon-gold { background:rgba(123,45,155,0.1); }
+  .card h3 { font-size:17px; font-weight:600; margin-bottom:8px; color:var(--dark); }
+  .card p { font-size:15px; color:var(--muted); line-height:1.65; }
+
+  /* about */
+  .about-grid { display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:start; margin-bottom:60px; }
+  .about-text p { font-size:16px; color:#3a2060; line-height:1.8; margin-bottom:16px; }
+  .info-box { background:var(--dark); border-radius:20px; padding:32px; }
+  .info-box h3 { font-family:'Cormorant Garamond',serif; color:var(--gold-light); font-size:22px; margin-bottom:20px; }
+  .info-row { display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .info-row:last-child { border-bottom:none; }
+  .info-row .k { color:rgba(255,255,255,0.5); font-size:13px; }
+  .info-row .v { color:#fff; font-size:13px; font-weight:500; }
+
+  /* timeline */
+  .timeline { position:relative; padding-left:32px; }
+  .timeline::before { content:''; position:absolute; left:10px; top:0; bottom:0; width:2px; background:linear-gradient(180deg,var(--burgundy),var(--gold)); border-radius:2px; }
+  .timeline-item { position:relative; margin-bottom:32px; }
+  .timeline-item::before {
+    content:''; position:absolute; left:-26px; top:6px;
+    width:12px; height:12px; border-radius:50%; background:var(--gold);
+    border:2px solid var(--cream); box-shadow:0 0 0 3px var(--burgundy);
+  }
+  .timeline-item h4 { font-weight:600; color:var(--dark); margin-bottom:4px; }
+  .timeline-item p { font-size:14px; color:var(--muted); line-height:1.6; }
+  .timeline-year { font-size:12px; font-weight:700; color:var(--burgundy); letter-spacing:1px; margin-bottom:4px; }
+
+  /* departments table */
+  table { width:100%; border-collapse:collapse; font-size:14px; }
+  thead { background:var(--dark); color:#fff; }
+  thead th { padding:14px 16px; text-align:left; font-weight:500; letter-spacing:.3px; }
+  tbody tr { border-bottom:1px solid var(--border); transition:.2s; }
+  tbody tr:hover { background:rgba(123,45,155,0.04); }
+  tbody td { padding:12px 16px; color:var(--text); }
+  .badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:600; }
+  .badge-ug { background:rgba(123,45,155,0.1); color:var(--burgundy); }
+  .badge-pg { background:rgba(249,168,37,0.12); color:#7a4f00; }
+  .badge-res { background:rgba(40,100,180,0.1); color:#1a4a90; }
+
+  /* infra */
+  .infra-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-bottom:48px; }
+  .infra-stat {
+    background:#fff; border-radius:16px; padding:24px; text-align:center;
+    border:1px solid var(--border); transition:.3s;
+  }
+  .infra-stat:hover { box-shadow:0 6px 24px rgba(123,45,155,0.12); transform:translateY(-3px); }
+  .infra-stat .num { font-family:'Cormorant Garamond',serif; font-size:36px; font-weight:700; color:var(--burgundy); }
+  .infra-stat .label { font-size:12px; color:var(--muted); margin-top:4px; }
+
+  /* contact */
+  .contact-layout { display:grid; grid-template-columns:1fr 1.5fr; gap:40px; }
+  .contact-info h3 { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:700; color:var(--dark); margin-bottom:24px; }
+  .contact-item { display:flex; gap:14px; margin-bottom:20px; align-items:flex-start; }
+  .contact-icon { width:42px; height:42px; min-width:42px; border-radius:10px; background:rgba(123,45,155,0.08); display:flex; align-items:center; justify-content:center; font-size:18px; }
+  .contact-item .txt h4 { font-weight:600; font-size:14px; margin-bottom:2px; }
+  .contact-item .txt p { font-size:13px; color:var(--muted); line-height:1.6; }
+
+  /* placement */
+  .placement-companies { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+  .company-tag {
+    background:#fff; border:1px solid var(--border); border-radius:8px;
+    padding:8px 16px; font-size:13px; font-weight:500; color:var(--text); transition:.2s;
+  }
+  .company-tag:hover { border-color:var(--burgundy); color:var(--burgundy); background:rgba(123,45,155,0.06); }
+
+  /* Research */
+  .research-tabs { display:flex; gap:8px; margin-bottom:32px; flex-wrap:wrap; }
+  .r-tab { padding:8px 20px; border-radius:8px; border:1.5px solid var(--border); font-size:13px; font-weight:500; cursor:pointer; transition:.2s; background:#fff; }
+  .r-tab.active { background:var(--burgundy); color:#fff; border-color:var(--burgundy); }
+
+  /* ─── CHATBOT ─── */
+  #zyra-launcher {
+    position:fixed; bottom:24px; right:24px; z-index:2000;
+    width:60px; height:60px; border-radius:50%;
+    background:linear-gradient(135deg,var(--burgundy),var(--gold));
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer; box-shadow:0 8px 28px rgba(123,45,155,0.55);
+    transition:.25s; border:none;
+    animation:pulse-bot 2.5s infinite;
+  }
+  @keyframes pulse-bot {
+    0%,100%{box-shadow:0 8px 28px rgba(123,45,155,0.55),0 0 0 0 rgba(123,45,155,0.3);}
+    50%{box-shadow:0 8px 28px rgba(123,45,155,0.55),0 0 0 12px rgba(91,15,168,0);}
+  }
+  #zyra-launcher:hover { transform:scale(1.08); }
+  #zyra-launcher svg { width:28px; height:28px; fill:#fff; }
+
+  #zyra-window {
+    position:fixed; bottom:96px; right:24px; z-index:1999;
+    width:370px; height:540px; background:#fff;
+    border-radius:20px; box-shadow:0 24px 80px rgba(0,0,0,0.2);
+    display:none; flex-direction:column; overflow:hidden;
+    border:1px solid var(--border);
+    animation:slideUp .3s ease;
+  }
+  @keyframes slideUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+  #zyra-window.open { display:flex; }
+
+  .zyra-header {
+    background:linear-gradient(135deg,var(--dark),var(--mid));
+    padding:16px 20px; display:flex; align-items:center; gap:12px;
+  }
+  .zyra-avatar {
+    width:42px; height:42px; border-radius:50%;
+    background:linear-gradient(135deg,var(--burgundy),var(--gold));
+    display:flex; align-items:center; justify-content:center;
+    font-size:18px; border:2px solid var(--gold-light);
+    flex-shrink:0;
+  }
+  .zyra-header-info { flex:1; }
+  .zyra-header-info h4 { color:#fff; font-size:15px; font-weight:600; }
+  .zyra-header-info p { color:var(--gold-light); font-size:11px; }
+  .zyra-close { background:none; border:none; color:rgba(255,255,255,0.6); cursor:pointer; font-size:20px; padding:4px; transition:.2s; }
+  .zyra-close:hover { color:#fff; }
+
+  .zyra-body { flex:1; overflow-y:auto; padding:16px; display:flex; flex-direction:column; gap:12px; background:#fafafa; }
+  .msg { max-width:82%; padding:11px 14px; border-radius:14px; font-size:13.5px; line-height:1.55; }
+  .msg.zyra { background:#fff; border:1px solid var(--border); color:var(--text); border-bottom-left-radius:4px; align-self:flex-start; box-shadow:0 2px 8px rgba(0,0,0,0.06); }
+  .msg.user { background:linear-gradient(135deg,var(--burgundy),var(--gold)); color:#fff; border-bottom-right-radius:4px; align-self:flex-end; }
+  .msg a { color:var(--burgundy); text-decoration:underline; font-size:12px; }
+
+  .quick-chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+  .chip {
+    background:#fff; border:1px solid var(--border); border-radius:16px;
+    padding:5px 12px; font-size:11.5px; cursor:pointer; color:var(--burgundy);
+    font-weight:500; transition:.2s;
+  }
+  .chip:hover { background:var(--burgundy); color:#fff; border-color:var(--burgundy); }
+
+  .zyra-input-row { padding:12px 14px; background:#fff; border-top:1px solid var(--border); display:flex; gap:8px; }
+  .zyra-input-row input {
+    flex:1; border:1.5px solid var(--border); border-radius:10px;
+    padding:9px 14px; font-size:13px; outline:none; font-family:'DM Sans',sans-serif;
+    transition:.2s;
+  }
+  .zyra-input-row input:focus { border-color:var(--burgundy); box-shadow:0 0 0 3px rgba(123,45,155,0.1); }
+  .zyra-input-row button {
+    background:linear-gradient(135deg,var(--burgundy),var(--gold));
+    color:#fff; border:none; border-radius:10px; width:40px; cursor:pointer;
+    font-size:16px; transition:.2s;
+  }
+  .zyra-input-row button:hover { opacity:.85; }
+
+  /* responsive */
+  @media(max-width:768px){
+    .hero-inner,.about-grid,.contact-layout { grid-template-columns:1fr; }
+    .grid2,.grid3,.infra-grid { grid-template-columns:1fr 1fr; }
+    .hero-right { display:none; }
+    .nav-links { display:none; }
+    #zyra-window { width:calc(100vw - 32px); right:16px; bottom:88px; }
+  }
+  @media(max-width:480px){
+    .grid2,.grid3,.infra-grid { grid-template-columns:1fr; }
+  }
+
+  .divider { border:none; border-top:1px solid var(--border); margin:48px 0; }
+  .text-center { text-align:center; }
+  .mt16 { margin-top:16px; }
+  .mt32 { margin-top:32px; }
+  .mb8 { margin-bottom:8px; }
+
+  footer {
+    background:var(--dark); padding:40px 32px; text-align:center;
+    margin-top:60px;
+  }
+  footer p { color:rgba(255,255,255,0.4); font-size:13px; }
+  footer a { color:var(--gold-light); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="nav-logo" onclick="showSection('home')">
+    <div class="logo-icon">SI</div>
+    <div class="logo-text">
+      <span>SIGC</span>
+      <small>TIRUCHIRAPPALLI</small>
+    </div>
+  </div>
+  <div class="nav-links">
+    <a onclick="showSection('home')" id="nav-home" class="active">Home</a>
+    <a onclick="showSection('about')" id="nav-about">About</a>
+    <a onclick="showSection('academics')" id="nav-academics">Academics</a>
+    <a onclick="showSection('admissions')" id="nav-admissions">Admissions</a>
+    <a onclick="showSection('placement')" id="nav-placement">Placement</a>
+    <a onclick="showSection('infrastructure')" id="nav-infrastructure">Infrastructure</a>
+    <a onclick="showSection('research')" id="nav-research">Research</a>
+    <a onclick="showSection('contact')" id="nav-contact" class="nav-cta">Contact Us</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     HOME
+════════════════════════════════════════════════════════════ -->
+<section id="home" class="active">
+  <div style="background:linear-gradient(160deg,var(--dark) 0%,var(--mid) 55%,#1a0030 100%);position:relative;overflow:hidden;">
+    <div class="hero-pattern"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-badge">✦ Est. 1984 &nbsp;·&nbsp; Women's Empowerment</div>
+        <h1 class="hero-title">Shrimati<br/><em>Indira Gandhi</em><br/>College</h1>
+        <p class="hero-sub">Tiruchirappalli's premier women's arts & science institution — empowering generations through quality education, innovation, and holistic development since 1984.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><span class="num">40+</span><span class="lbl">Years of Legacy</span></div>
+          <div class="hero-stat"><span class="num">43</span><span class="lbl">Programmes</span></div>
+          <div class="hero-stat"><span class="num">95%</span><span class="lbl">Placement Rate</span></div>
+        </div>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showSection('admissions')">Apply Now</button>
+          <button class="btn-outline" onclick="showSection('about')">Discover SIGC</button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="feat-card"><div class="icon">🏛️</div><h4>NAAC 'A' Grade</h4><p>Accredited for academic excellence and quality standards</p></div>
+        <div class="feat-card"><div class="icon">💼</div><h4>Training & Placement</h4><p>Top recruiters including TCS, Wipro & Omega</p></div>
+        <div class="feat-card"><div class="icon">🔬</div><h4>Research Hub</h4><p>Ph.D programmes, patents & funded projects</p></div>
+        <div class="feat-card"><div class="icon">🏗️</div><h4>Smart Campus</h4><p>27 ICT-enabled smart classrooms, 12 buildings</p></div>
+        <div class="feat-card span2"><div class="icon">🌟</div><h4>AWS & Cisco Centers of Excellence</h4><p>Recognised as a Center of Excellence for Cyber Security & Cloud Computing — one of 25 selected nationally for Women Empowerment by Honeywell</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Highlights Strip -->
+  <div style="background:#fff;padding:48px 32px;">
+    <div class="content-wrap" style="padding:0;">
+      <div class="text-center" style="margin-bottom:40px;">
+        <h2 class="section-title">Why Choose <span>SIGC?</span></h2>
+        <p class="section-sub">A legacy of empowering women through world-class education</p>
+      </div>
+      <div class="grid3">
+        <div class="card">
+          <div class="card-icon icon-red">🎓</div>
+          <h3>Academic Excellence</h3>
+          <p>Affiliated with Bharathidasan University, UGC recognized under 2(f) & 12(b), with AICTE-approved MBA & MCA programmes.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-gold">🌐</div>
+          <h3>Industry Connections</h3>
+          <p>Strategic tie-ups with leading companies. Regular guest lectures, internships, workshops, and on-campus recruitments.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-red">🏆</div>
+          <h3>Award-Winning Institution</h3>
+          <p>World records, Best Women's Faculty Awards, Academic Partner Awards, and national rankings across multiple categories.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-gold">💡</div>
+          <h3>Innovation & IIC</h3>
+          <p>Institution Innovation Council fosters entrepreneurship and start-up culture. ISO 9001:2015 certified processes.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-red">📚</div>
+          <h3>Rich Library</h3>
+          <p>3 OPAC-automated libraries with 51,914+ volumes, 50 journals, and access to IEEE, EBSCO, JGATE e-resources.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-gold">🌿</div>
+          <h3>Green & Inclusive Campus</h3>
+          <p>9.04-acre campus in the heart of Trichy — eco-friendly, fully accessible, and minutes from the railway station.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ABOUT
+════════════════════════════════════════════════════════════ -->
+<section id="about">
+  <div class="page-hero">
+    <h1>About SIGC</h1>
+    <p>Our heritage, leadership & vision since 1984</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="content-wrap">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title">Our <span>Story</span></h2>
+        <p>Shrimati Indira Gandhi College was founded in 1984 by <strong>Vidya Seva Ratnam K. Santhanam</strong> with a single-minded devotion to educate and empower women. It is one of the first two colleges in Tamil Nadu established exclusively for women, named after the former Indian Prime Minister Indira Gandhi — whose life-size statue marks the college entrance.</p>
+        <p>From a humble beginning of just 2 courses and 10 teachers, the institution has grown into one of the most important women's colleges in India, with over 43 programmes, hundreds of faculty members, and thousands of alumni across the globe.</p>
+        <p>The campus is historic ground — in 1934, Mahatma Gandhi visited this site (then National College High School), and a Peepal tree known as <em>"The Gandhi Tree"</em> commemorates the visit with plaques in English and Tamil.</p>
+        <p>Under the current leadership of <strong>Dr. P. Gajalakshmi (Principal)</strong> and successive able principals, the college has earned NAAC 'A' Grade accreditation for multiple cycles, ISO 9001:2015 certification, and numerous national recognitions.</p>
+      </div>
+      <div>
+        <div class="info-box">
+          <h3>Key Facts</h3>
+          <div class="info-row"><span class="k">Founded</span><span class="v">1984</span></div>
+          <div class="info-row"><span class="k">Founder</span><span class="v">K. Santhanam</span></div>
+          <div class="info-row"><span class="k">Principal</span><span class="v">Dr. P. Gajalakshmi</span></div>
+          <div class="info-row"><span class="k">Affiliation</span><span class="v">Bharathidasan University</span></div>
+          <div class="info-row"><span class="k">NAAC Grade</span><span class="v">'A' Grade (Multiple Cycles)</span></div>
+          <div class="info-row"><span class="k">Approvals</span><span class="v">AICTE, UGC 2(f) & 12(b)</span></div>
+          <div class="info-row"><span class="k">ISO</span><span class="v">9001:2015 Certified</span></div>
+          <div class="info-row"><span class="k">Campus Area</span><span class="v">9.04 Acres</span></div>
+          <div class="info-row"><span class="k">Location</span><span class="v">Chatram, Tiruchirappalli - 620 002</span></div>
+          <div class="info-row"><span class="k">Phone</span><span class="v">0431-2702797 / 2701453</span></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- Timeline -->
+    <h2 class="section-title">Our <span>Milestones</span></h2>
+    <p class="section-sub">A journey of growth, excellence & impact</p>
+    <div class="timeline mt32">
+      <div class="timeline-item"><div class="timeline-year">1984</div><h4>College Founded</h4><p>K. Santhanam establishes SIGC — one of Tamil Nadu's first two women-only colleges — with 2 courses and 10 teachers.</p></div>
+      <div class="timeline-item"><div class="timeline-year">1994</div><h4>UGC Recognition</h4><p>Obtained UGC recognition under Sections 2(f) and 12(b), marking national academic legitimacy.</p></div>
+      <div class="timeline-item"><div class="timeline-year">2000s</div><h4>AICTE & MBA/MCA Launch</h4><p>AICTE-approved MBA and MCA (Full Time) programmes launched, expanding professional education for women.</p></div>
+      <div class="timeline-item"><div class="timeline-year">2015</div><h4>NAAC 'A' Grade — III Cycle</h4><p>Accreditation at 'A' Grade by NAAC, recognizing outstanding academic and infrastructural standards.</p></div>
+      <div class="timeline-item"><div class="timeline-year">2021–22</div><h4>World Records</h4><p>Achieved two World Records conferred by America Mutamil University, USA, for cultural and academic programmes.</p></div>
+      <div class="timeline-item"><div class="timeline-year">2023</div><h4>Centers of Excellence</h4><p>Recognised as AWS & Cisco Centers of Excellence; selected among 25 national Centers of Excellence for Women Empowerment by Honeywell.</p></div>
+      <div class="timeline-item"><div class="timeline-year">2024</div><h4>Today & Beyond</h4><p>43 programmes, 12 buildings, 27 smart classrooms, and a thriving research, innovation & placement ecosystem.</p></div>
+    </div>
+
+    <hr class="divider"/>
+
+    <!-- Vision & Mission -->
+    <div class="grid2 mt32">
+      <div class="card">
+        <div class="card-icon icon-red">🌟</div>
+        <h3>Vision</h3>
+        <p>To become a premier center for higher education, recognized for quality teaching, innovative research, and meaningful industry collaboration — nurturing women who contribute to society and global progress.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🎯</div>
+        <h3>Mission</h3>
+        <p>To foster innovation, critical thinking, and ethical leadership through holistic education — empowering women from all backgrounds with knowledge, skills, and values to lead and serve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ACADEMICS
+════════════════════════════════════════════════════════════ -->
+<section id="academics">
+  <div class="page-hero">
+    <h1>Academics</h1>
+    <p>Programmes, departments & curriculum excellence</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="content-wrap">
+    <h2 class="section-title">Programmes <span>Offered</span></h2>
+    <p class="section-sub">43 programmes spanning science, commerce, arts, management & technology</p>
+
+    <!-- UG -->
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:16px;color:var(--dark);">🎓 UG Programmes</h3>
+    <table>
+      <thead><tr><th>#</th><th>Programme</th><th>Eligibility</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>B.Sc. Computer Science</td><td>12th with Maths</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>2</td><td>B.C.A</td><td>12th with Maths</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>3</td><td>B.Sc. Mathematics (MCA / MCP)</td><td>12th with Maths</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>4</td><td>B.Sc. Physics</td><td>12th with Physics, Maths</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>5</td><td>B.Sc. Microbiology</td><td>12th with Biology</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>6</td><td>B.Sc. Biochemistry</td><td>12th with Chemistry/Biology</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>7</td><td>B.Sc. Biotechnology</td><td>12th PCB (55-60%)</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>8</td><td>B.Sc. Information Technology</td><td>12th with Maths</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>9</td><td>B.Sc. Fashion Technology & Costume Designing</td><td>12th Pass</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>10</td><td>B.Sc. Chemistry</td><td>12th with Physics, Chemistry</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>11</td><td>B.Com</td><td>12th with Accountancy/Commerce</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>12</td><td>B.B.A</td><td>12th with Accountancy/Commerce</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>13</td><td>B.Com B.M.</td><td>12th with Accountancy/Commerce</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>14</td><td>B.A. Economics</td><td>12th Pass</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>15</td><td>B.Litt. Tamil</td><td>12th Pass</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>16</td><td>B.A. English</td><td>12th Pass</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>17</td><td>B.Com (CA) Computer Applications</td><td>12th with Accountancy/Commerce</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>18</td><td>B.Com (CS) Corporate Secretaryship</td><td>12th with Accountancy/Commerce</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>19</td><td>B.Sc. AI & Machine Learning</td><td>12th with Maths</td><td><span class="badge badge-ug">UG</span></td></tr>
+        <tr><td>20</td><td>B.Sc. Data Science</td><td>12th with Maths</td><td><span class="badge badge-ug">UG</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- PG -->
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;margin:36px 0 16px;color:var(--dark);">🎓 PG Programmes</h3>
+    <table>
+      <thead><tr><th>#</th><th>Programme</th><th>Eligibility</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>M.B.A (Full Time) – AICTE Approved</td><td>Any Degree 50% + TANCET/CET</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>2</td><td>M.C.A (Full Time) – AICTE Approved</td><td>Bachelor's 50%, Maths + TANCET/CET</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>3</td><td>M.Sc. Computer Science</td><td>B.Sc IT / Degree with Maths/Stats</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>4</td><td>M.Sc. Information Technology</td><td>B.Sc IT / Degree with Maths/Stats</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>5</td><td>M.Com</td><td>B.Com / B.B.A or equivalent</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>6</td><td>M.Sc. Microbiology</td><td>B.Sc Microbiology/Chemistry/Biology</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>7</td><td>M.Sc. Biochemistry</td><td>B.Sc Microbiology/Chemistry/Biology</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>8</td><td>M.Sc. Physics</td><td>B.Sc Physics</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>9</td><td>M.Sc. Mathematics</td><td>B.Sc Mathematics</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>10</td><td>M.Sc. Hospital Administration</td><td>Graduation in any Discipline</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>11</td><td>M.S.W. (Social Work)</td><td>Graduation in any Discipline</td><td><span class="badge badge-pg">PG</span></td></tr>
+        <tr><td>12</td><td>M.A. Tamil</td><td>B.Litt Tamil</td><td><span class="badge badge-pg">PG</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- Research -->
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;margin:36px 0 16px;color:var(--dark);">🔬 Research Programmes</h3>
+    <table>
+      <thead><tr><th>#</th><th>Programme</th><th>Type</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Ph.D. Computer Science</td><td><span class="badge badge-res">Research</span></td></tr>
+        <tr><td>2</td><td>Ph.D. Mathematics</td><td><span class="badge badge-res">Research</span></td></tr>
+        <tr><td>3</td><td>Ph.D. Microbiology</td><td><span class="badge badge-res">Research</span></td></tr>
+        <tr><td>4</td><td>Ph.D. Management</td><td><span class="badge badge-res">Research</span></td></tr>
+        <tr><td>5</td><td>Ph.D. Tamil</td><td><span class="badge badge-res">Research</span></td></tr>
+        <tr><td>6</td><td>Ph.D. Commerce</td><td><span class="badge badge-res">Research</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- Diploma/Certificate -->
+    <div class="mt32">
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;margin-bottom:16px;color:var(--dark);">📜 Certificate & Diploma Programmes</h3>
+      <div class="grid3">
+        <div class="card"><div class="card-icon icon-red">📋</div><h3>PG Diplomas</h3><p>PG Diploma in Computer Applications (PGDCA), E-Commerce, and Bio-Informatics.</p></div>
+        <div class="card"><div class="card-icon icon-gold">📋</div><h3>Diplomas</h3><p>Diploma in Yoga, Fashion Technology, and Business Process Outsourcing (BPO).</p></div>
+        <div class="card"><div class="card-icon icon-red">📋</div><h3>Certificates</h3><p>Certificate courses in Data Entry Operations, Beauty Culture & Health Care, Functional English, and Tailoring & Embroidery.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     ADMISSIONS
+════════════════════════════════════════════════════════════ -->
+<section id="admissions">
+  <div class="page-hero">
+    <h1>Admissions</h1>
+    <p>Join the SIGC family — Applications open for 2025-26</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="content-wrap">
+    <div class="grid2" style="margin-bottom:48px;">
+      <div>
+        <h2 class="section-title">Admission <span>Process</span></h2>
+        <p class="section-sub">Transparent, merit-based, inclusive</p>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="min-width:36px;height:36px;border-radius:50%;background:var(--burgundy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">1</div>
+            <div><h4 style="margin-bottom:4px;">Check Eligibility</h4><p style="font-size:14px;color:var(--muted);">Review programme-specific eligibility criteria for UG, PG, and Research programmes.</p></div>
+          </div>
+          <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="min-width:36px;height:36px;border-radius:50%;background:var(--burgundy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">2</div>
+            <div><h4 style="margin-bottom:4px;">Apply Online</h4><p style="font-size:14px;color:var(--muted);">Visit sigc.edu/admissions to complete and submit the online application form with required documents.</p></div>
+          </div>
+          <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="min-width:36px;height:36px;border-radius:50%;background:var(--burgundy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">3</div>
+            <div><h4 style="margin-bottom:4px;">Selection</h4><p style="font-size:14px;color:var(--muted);">Merit-based selection. MBA/MCA require valid TANCET/CET scores.</p></div>
+          </div>
+          <div class="card" style="display:flex;gap:16px;align-items:flex-start;">
+            <div style="min-width:36px;height:36px;border-radius:50%;background:var(--burgundy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;">4</div>
+            <div><h4 style="margin-bottom:4px;">Enrolment</h4><p style="font-size:14px;color:var(--muted);">Complete fee payment and document verification to confirm your seat at SIGC.</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="info-box" style="margin-bottom:20px;">
+          <h3>Important Documents</h3>
+          <div class="info-row"><span class="k">📄</span><span class="v">10th & 12th Mark Sheets</span></div>
+          <div class="info-row"><span class="k">📄</span><span class="v">Transfer Certificate</span></div>
+          <div class="info-row"><span class="k">📄</span><span class="v">Community Certificate</span></div>
+          <div class="info-row"><span class="k">📄</span><span class="v">Aadhar Card</span></div>
+          <div class="info-row"><span class="k">📄</span><span class="v">Passport Size Photographs</span></div>
+          <div class="info-row"><span class="k">📄</span><span class="v">Income Certificate (if applicable)</span></div>
+          <div class="info-row"><span class="k">📄</span><span class="v">TANCET/CET Score (MBA/MCA)</span></div>
+        </div>
+        <div class="card" style="background:linear-gradient(135deg,var(--burgundy),var(--gold));border:none;">
+          <h3 style="color:#fff;margin-bottom:8px;">💰 Financial Assistance</h3>
+          <p style="color:rgba(255,255,255,0.85);font-size:14px;">SIGC offers financial assistance to differently-abled and economically weaker students on important college occasions. Scholarships and aid programmes are available — contact the Admissions Office for details.</p>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <h2 class="section-title mb8">Online <span>Admission</span></h2>
+    <p class="section-sub">Applications for 2025-26 Academic Year</p>
+    <div class="card" style="display:flex;align-items:center;gap:24px;flex-wrap:wrap;">
+      <div style="flex:1;min-width:200px;">
+        <p style="font-size:15px;color:#3a2060;line-height:1.7;">Submit your application through the official SIGC portal. For assistance, contact our Admissions Office at <strong>0431-2702797</strong> or email <strong>contact@sigc.edu</strong>.</p>
+      </div>
+      <a href="https://www.sigc.edu/admissions" target="_blank" style="text-decoration:none;">
+        <button class="btn-primary">Apply at sigc.edu/admissions →</button>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     PLACEMENT
+════════════════════════════════════════════════════════════ -->
+<section id="placement">
+  <div class="page-hero">
+    <h1>Training & Placement</h1>
+    <p>Bridging academia and industry for career success</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="content-wrap">
+    <!-- Stats -->
+    <div class="infra-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="infra-stat"><div class="num">95%</div><div class="label">Placement Rate</div></div>
+      <div class="infra-stat"><div class="num">6 LPA</div><div class="label">Highest CTC Offered</div></div>
+      <div class="infra-stat"><div class="num">3 LPA</div><div class="label">Median CTC</div></div>
+      <div class="infra-stat"><div class="num">50+</div><div class="label">Recruiting Companies</div></div>
+    </div>
+
+    <div class="grid2" style="margin-top:48px;">
+      <div>
+        <h2 class="section-title">Placement <span>Cell</span></h2>
+        <p class="section-sub">A dedicated team connecting talent to opportunity</p>
+        <p style="font-size:15px;color:#3a2060;line-height:1.8;margin-bottom:16px;font-size:16px;">SIGC's Training & Placement Cell maintains strong industry partnerships, facilitating campus recruitments, internships, and career guidance. The cell actively organises pre-placement training, mock interviews, resume workshops, and industrial visits.</p>
+        <p style="font-size:15px;color:#3a2060;line-height:1.8;">Our placement cell is a certified resume builder — it creates active participation for internships and on-the-job training. Professional body memberships provide job boards, mentoring, and insights from experienced business experts.</p>
+        <div style="margin-top:24px;">
+          <h4 style="font-weight:600;margin-bottom:12px;">Top Recruiting Companies</h4>
+          <div class="placement-companies">
+            <div class="company-tag">TCS</div>
+            <div class="company-tag">Wipro</div>
+            <div class="company-tag">Omega Healthcare</div>
+            <div class="company-tag">Infosys</div>
+            <div class="company-tag">HCL</div>
+            <div class="company-tag">Zoho</div>
+            <div class="company-tag">Cognizant</div>
+            <div class="company-tag">Capgemini</div>
+            <div class="company-tag">Tech Mahindra</div>
+            <div class="company-tag">HDFC Bank</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;">
+        <div class="card"><div class="card-icon icon-red">📝</div><h3>Resume & CV Workshop</h3><p>Professional guidance on crafting impactful resumes — clarity, conciseness, reverse-chronological formatting, and bullet-point structuring tailored to academic and industry requirements.</p></div>
+        <div class="card"><div class="card-icon icon-gold">🎤</div><h3>Soft Skills & Communication</h3><p>Personality development, public speaking, leadership skills, digital marketing, language lab training — all designed to enhance holistic employability.</p></div>
+        <div class="card"><div class="card-icon icon-red">🏭</div><h3>Industry Interface</h3><p>Regular guest lectures from industry leaders, internship tie-ups, webinars with reputed national/international institutes, and hands-on project opportunities.</p></div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+    <div class="grid3">
+      <div class="card"><div class="card-icon icon-gold">☁️</div><h3>AWS Center of Excellence</h3><p>Recognised by AWS for training students in Cloud Practitioner Certification — preparing students for cloud computing careers.</p></div>
+      <div class="card"><div class="card-icon icon-red">🔒</div><h3>Cisco Center of Excellence</h3><p>Cisco Center of Excellence Award for training students in Cyber Security Essentials.</p></div>
+      <div class="card"><div class="card-icon icon-gold">🤖</div><h3>Microsoft Azure AI</h3><p>104 students trained in Microsoft Azure AI Fundamentals as part of Honeywell's Center of Excellence for Women Empowerment.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     INFRASTRUCTURE
+════════════════════════════════════════════════════════════ -->
+<section id="infrastructure">
+  <div class="page-hero">
+    <h1>Infrastructure</h1>
+    <p>A state-of-the-art campus built for modern learning</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="content-wrap">
+    <div class="infra-grid">
+      <div class="infra-stat"><div class="num">12</div><div class="label">Buildings</div></div>
+      <div class="infra-stat"><div class="num">110</div><div class="label">Classrooms</div></div>
+      <div class="infra-stat"><div class="num">27</div><div class="label">Smart Classrooms</div></div>
+      <div class="infra-stat"><div class="num">25</div><div class="label">Staff Rooms</div></div>
+      <div class="infra-stat"><div class="num">9.04</div><div class="label">Acres Campus</div></div>
+      <div class="infra-stat"><div class="num">51,914+</div><div class="label">Library Volumes</div></div>
+      <div class="infra-stat"><div class="num">5</div><div class="label">Computer Labs</div></div>
+      <div class="infra-stat"><div class="num">100</div><div class="label">Language Lab Licenses</div></div>
+    </div>
+
+    <div class="grid3 mt32">
+      <div class="card"><div class="card-icon icon-red">📚</div><h3>Library & e-Resources</h3><p>3 OPAC-automated libraries (MCA, MBA & General) with 51,914+ volumes, 30 magazines, 50 journals, and e-resources from IEEE, ASPP, EBSCO, and JGATE.</p></div>
+      <div class="card"><div class="card-icon icon-gold">💻</div><h3>ICT & Smart Classrooms</h3><p>27 ICT-enabled smart classrooms equipped with Interactive Flat Panel (IFP) or Smart TV. Language lab software with 100 licenses. Full internet connectivity.</p></div>
+      <div class="card"><div class="card-icon icon-red">🔬</div><h3>Science Laboratories</h3><p>Fully equipped science and computer laboratories — air-conditioned, with modern instruments for Biology, Chemistry, Physics, Computer Science, and IT departments.</p></div>
+      <div class="card"><div class="card-icon icon-gold">♿</div><h3>Accessible Campus</h3><p>Lift and ramp facilities across buildings, ensuring full accessibility for differently-abled students and staff. Medical facility also available on campus.</p></div>
+      <div class="card"><div class="card-icon icon-red">🏃</div><h3>Sports & Open Ground</h3><p>5.11 acres of open ground for sports and athletics. A dedicated Sports Committee promotes physical development alongside academics. Sports facilities and events organized regularly.</p></div>
+      <div class="card"><div class="card-icon icon-gold">🏠</div><h3>Hostel Facilities</h3><p>Well-furnished rooms (single, double & triple sharing) for outstation women students. Nutritious vegetarian meals, 24×7 CCTV security, hot water, study hall, common room & first aid. <strong>Fee: ₹25,500/semester.</strong> Strict in-time policy; mobile restricted during study hours.</p></div>
+      <div class="card"><div class="card-icon icon-red">🚌</div><h3>College Bus Service</h3><p>Dedicated college bus facility for day scholars covering multiple routes across Tiruchirappalli and nearby areas. <strong>Bus fee: ₹5,000–₹9,500 per semester</strong> based on distance. Morning pick-up & evening drop as per college schedule.</p></div>
+      <div class="card"><div class="card-icon icon-gold">🍽️</div><h3>Canteen</h3><p>On-campus canteen providing fresh, hygienic vegetarian food and snacks throughout the day. Affordable meals for students and staff.</p></div>
+    </div>
+
+    <hr class="divider"/>
+
+    <h2 class="section-title">Extra-Curricular <span>Activities</span></h2>
+    <p class="section-sub">Holistic development through clubs, committees & student life</p>
+    <div class="grid3 mt32">
+      <div class="card">
+        <div class="card-icon icon-red">🎨</div>
+        <h3>Fine Arts Club</h3>
+        <p>A vibrant platform for creative expression — students participate in classical music, folk & classical dance, street plays, drama, painting, and rangoli. Regular inter-collegiate cultural competitions organised. Annual Fine Arts Day celebrates talent across all art forms.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🌿</div>
+        <h3>Exnora Club</h3>
+        <p>SIGC's environmental action club focused on cleanliness drives, plastic-free campaigns, tree plantation programmes, and eco-awareness workshops. Students actively participate in Swachh Bharat initiatives and green campus maintenance.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-red">🔄</div>
+        <h3>Rotaract Club</h3>
+        <p>Affiliated with Rotary International — conducts community service projects, blood donation camps, awareness programmes, and leadership training. Students develop teamwork, civic responsibility, and professional skills through service activities.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🚑</div>
+        <h3>Youth Red Cross (YRC)</h3>
+        <p>Trains students in first aid, disaster preparedness, and humanitarian service. Organises blood donation drives, health awareness camps, and community relief activities in collaboration with the Red Cross Society of India.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-red">⚖️</div>
+        <h3>Gender Club</h3>
+        <p>Promotes gender equality, women's rights and awareness of social issues. Conducts seminars, workshops, and street plays on gender sensitivity, legal rights, self-defence, and women's empowerment topics throughout the year.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🤝</div>
+        <h3>NSS — National Service Scheme</h3>
+        <p>Students serve the community through village adoption programmes, literacy drives, health camps, and social welfare activities. NSS camps are conducted in adopted villages. Students earn NSS certificates recognised by the UGC.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-red">❓</div>
+        <h3>Quiz Club</h3>
+        <p>Sharpens general knowledge, current affairs, science, and literary awareness. Conducts inter-departmental and inter-collegiate quiz competitions. Students represent SIGC at state and national level quiz events.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">🛒</div>
+        <h3>Consumer Club</h3>
+        <p>Educates students on consumer rights, grievance redressal, product safety, and market awareness. Organises consumer awareness drives and collaborates with the District Consumer Forum for community outreach programmes.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-red">🏅</div>
+        <h3>Sports Committee</h3>
+        <p>Manages and promotes all sports activities — athletics, volleyball, basketball, throwball, kabaddi, chess, and carrom. Organises Annual Sports Day and inter-collegiate tournaments. Students represent Bharathidasan University at zonal and state level competitions.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">💡</div>
+        <h3>IIC — Innovation Council</h3>
+        <p>MoE-registered Institution Innovation Council fosters entrepreneurship, start-up culture, IPR awareness, and technology innovation. Students participate in Smart India Hackathon, StartupTN, and IIC-sponsored innovation challenges.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-red">🌐</div>
+        <h3>UBA — Unnat Bharat Abhiyan</h3>
+        <p>SIGC has adopted villages under the Unnat Bharat Abhiyan scheme. Students and faculty work with rural communities on education, hygiene, digital literacy, and sustainable development programmes.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon icon-gold">📚</div>
+        <h3>Literary & Language Activities</h3>
+        <p>Tamil Literary Association, English Literary Club, and Language Lab activities support communication skills. Elocution, debate, essay writing, and poetry competitions conducted regularly. Participation in Kaviyarangam and literary meets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     RESEARCH
+════════════════════════════════════════════════════════════ -->
+<section id="research">
+  <div class="page-hero">
+    <h1>Research</h1>
+    <p>Advancing knowledge through innovation, collaboration & discovery</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="content-wrap">
+    <div class="grid2" style="margin-bottom:48px;">
+      <div>
+        <h2 class="section-title">Research <span>at SIGC</span></h2>
+        <p class="section-sub">Committed to meaningful inquiry and impact</p>
+        <p style="font-size:15px;color:#3a2060;line-height:1.8;margin-bottom:14px;">SIGC has a vibrant research culture with dedicated Research & Development Cell, faculty-led projects, and sponsored research. The college encourages inter-disciplinary and multi-disciplinary project work, industry-academia collaboration, and publication in national and international journals.</p>
+        <p style="font-size:15px;color:#3a2060;line-height:1.8;">Students are equipped with critical thinking, research methodology, and project management skills through curriculum and co-curricular activities.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div class="card"><div class="card-icon icon-red">📜</div><h3>Research Policy</h3><p>A formal Research Policy guides ethical and productive scholarly activity across all departments.</p></div>
+        <div class="card"><div class="card-icon icon-gold">🧪</div><h3>R&D Cell</h3><p>Members of the Research and Development Cell coordinate projects, mentoring, and funding applications.</p></div>
+        <div class="card"><div class="card-icon icon-red">🎓</div><h3>Ph.D Regulations</h3><p>Structured Ph.D. programmes (2024 Regulations) in Computer Science, Mathematics, Microbiology, Management, Tamil, and Commerce.</p></div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+
+    <div class="grid3">
+      <div class="card"><div class="card-icon icon-gold">📰</div><h3>Research Publications</h3><p>Faculty and students regularly publish in peer-reviewed national and international journals across disciplines — science, commerce, management, and humanities.</p></div>
+      <div class="card"><div class="card-icon icon-red">📘</div><h3>Books & Book Chapters</h3><p>Faculty members contribute books and book chapters to academic knowledge, recognized at state and national levels.</p></div>
+      <div class="card"><div class="card-icon icon-gold">💡</div><h3>Patents</h3><p>SIGC holds patents resulting from innovative research projects by faculty and student teams — a testament to the institution's creative and technical depth.</p></div>
+      <div class="card"><div class="card-icon icon-red">💰</div><h3>Grants Received</h3><p>The college has received research grants from government bodies and funding agencies to support sponsored research projects.</p></div>
+      <div class="card"><div class="card-icon icon-gold">🌐</div><h3>International Conferences</h3><p>Regular hosting of national and international conferences, webinars, and symposia — including an International Conference on சிற்றிலக்கியம் 100 earning an award.</p></div>
+      <div class="card"><div class="card-icon icon-red">🏆</div><h3>BRIDGE 23 Achievement</h3><p>Among 297 colleges at South Zone, SIGC was in the top 9 (200+ bots uploaded) — only arts & science college in Trichy to achieve this; second in ranking in its category.</p></div>
+    </div>
+
+    <hr class="divider"/>
+
+    <div class="text-center">
+      <h2 class="section-title">World Record <span>Achievements</span></h2>
+      <p class="section-sub">Conferred by America Mutamil University, USA</p>
+      <div class="grid2 mt32">
+        <div class="card">
+          <div class="card-icon icon-red" style="margin:0 auto 16px;">🌍</div>
+          <h3>16-Hour Marabu Kaviyarangam</h3>
+          <p>World Record for conducting a continuous 16-hour Marabu Kaviyarangam, Karutharangam & Vazhtharangam — October 2021.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon icon-gold" style="margin:0 auto 16px;">🌍</div>
+          <h3>Valluvam Kattum Vazhviyal</h3>
+          <p>World Record for a 16-hour continuous programme on Valluvam Kattum Vazhviyal — February 2022.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     CONTACT
+════════════════════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="page-hero">
+    <h1>Contact Us</h1>
+    <p>We're here to help — reach out to SIGC</p>
+    <div class="gold-line"></div>
+  </div>
+  <div class="content-wrap">
+    <div class="contact-layout">
+      <div>
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div class="txt">
+              <h4>Address</h4>
+              <p>Post Box No. 369, College Road,<br/>Chatram Bus Stand,<br/>Tiruchirappalli – 620 002, Tamil Nadu, India</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div class="txt">
+              <h4>Phone</h4>
+              <p>0431 – 2702797<br/>0431 – 2701453</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div class="txt">
+              <h4>Email</h4>
+              <p>contact@sigc.edu</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🌐</div>
+            <div class="txt">
+              <h4>Website</h4>
+              <p>www.sigc.edu</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🚉</div>
+            <div class="txt">
+              <h4>How to Reach</h4>
+              <p>2 km from Tiruchirappalli Railway Station<br/>15 km from Tiruchirappalli International Airport<br/>Opposite Chatram Bus Stand</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card" style="height:100%;min-height:400px;background:linear-gradient(160deg,var(--dark),var(--mid));display:flex;flex-direction:column;justify-content:space-between;">
+          <div>
+            <h3 style="font-family:'Cormorant Garamond',serif;color:var(--gold-light);font-size:22px;margin-bottom:20px;">Send Us a Message</h3>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <input type="text" placeholder="Your Name" style="width:100%;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;"/>
+              <input type="email" placeholder="Email Address" style="width:100%;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;"/>
+              <input type="text" placeholder="Subject" style="width:100%;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;"/>
+              <textarea placeholder="Your Message" rows="5" style="width:100%;padding:11px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#fff;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;resize:vertical;"></textarea>
+            </div>
+          </div>
+          <button class="btn-primary" style="margin-top:20px;width:100%;">Send Message →</button>
+        </div>
+      </div>
+    </div>
+
+    <hr class="divider"/>
+    <div class="grid3">
+      <div class="card"><div class="card-icon icon-red">🏛️</div><h3>Admissions Office</h3><p>For programme enquiries and application assistance, contact us at 0431-2702797 or visit sigc.edu/admissions.</p></div>
+      <div class="card"><div class="card-icon icon-gold">💼</div><h3>Placement Cell</h3><p>Companies interested in campus recruitment can connect with our Training & Placement division at contact@sigc.edu.</p></div>
+      <div class="card"><div class="card-icon icon-red">🔬</div><h3>Research Office</h3><p>For R&D collaborations, Ph.D. enquiries, and publication partnerships, reach us via contact@sigc.edu.</p></div>
+    </div>
+  </div>
+  <footer>
+    <p>© 2025 Shrimati Indira Gandhi College, Tiruchirappalli. All Rights Reserved.<br/>
+    Post Box No. 369, College Road, Chatram Bus Stand, Tiruchirappalli – 620 002 | <a href="tel:04312702797">0431-2702797</a> | <a href="mailto:contact@sigc.edu">contact@sigc.edu</a></p>
+  </footer>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     ZYRA CHATBOT
+═══════════════════════════════════════════ -->
+<button id="zyra-launcher" onclick="toggleZyra()" title="Chat with Zyra">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+  <svg viewBox="0 0 24 24" style="display:none;"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+</button>
+
+<div id="zyra-window">
+  <div class="zyra-header">
+    <div class="zyra-avatar">🌸</div>
+    <div class="zyra-header-info">
+      <h4>Zyra</h4>
+      <p>SIGC Virtual Assistant • Always here to help!</p>
+    </div>
+    <button class="zyra-close" onclick="toggleZyra()">✕</button>
+  </div>
+  <div class="zyra-body" id="zyra-messages">
+    <!-- Messages injected by JS -->
+  </div>
+  <div class="zyra-input-row">
+    <input id="zyra-input" type="text" placeholder="Ask me anything about SIGC…" onkeydown="if(event.key==='Enter')sendMsg()"/>
+    <button onclick="sendMsg()">➤</button>
+  </div>
+</div>
+
+<script>
+// ─────────────────────────────
+// NAVIGATION
+// ─────────────────────────────
+function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  const navEl = document.getElementById('nav-' + id);
+  if (navEl) navEl.classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+// ─────────────────────────────
+// ZYRA CHATBOT ENGINE v2 — Smart NLP
+// ─────────────────────────────
+let zyraOpen = false;
+function toggleZyra() {
+  const win = document.getElementById('zyra-window');
+  zyraOpen = !zyraOpen;
+  win.classList.toggle('open', zyraOpen);
+  const svgs = document.querySelectorAll('#zyra-launcher svg');
+  svgs[0].style.display = zyraOpen ? 'none' : 'block';
+  svgs[1].style.display = zyraOpen ? 'block' : 'none';
+  if (zyraOpen && document.getElementById('zyra-messages').children.length === 0) {
+    initZyra();
+  }
+}
+
+function initZyra() {
+  addZyraMsg("Hello! 👋 I'm <strong>Zyra</strong>, SIGC's virtual assistant. Ask me anything about <strong>Shrimati Indira Gandhi College, Tiruchirappalli</strong> — admissions, programmes, placement, fees, campus and more!");
+  addChips(["Programmes Offered","Admissions Process","Placement Stats","Fees & Scholarships","Contact SIGC","About the College"]);
+}
+
+function addZyraMsg(html, chips) {
+  const body = document.getElementById('zyra-messages');
+  const div = document.createElement('div');
+  div.className = 'msg zyra';
+  div.innerHTML = html;
+  body.appendChild(div);
+  if (chips) addChips(chips);
+  body.scrollTop = body.scrollHeight;
+}
+
+function addUserMsg(text) {
+  const body = document.getElementById('zyra-messages');
+  const div = document.createElement('div');
+  div.className = 'msg user';
+  div.textContent = text;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+function addChips(arr) {
+  const body = document.getElementById('zyra-messages');
+  const row = document.createElement('div');
+  row.className = 'quick-chips';
+  arr.forEach(t => {
+    const c = document.createElement('span');
+    c.className = 'chip';
+    c.textContent = t;
+    c.onclick = () => { handleInput(t); };
+    row.appendChild(c);
+  });
+  body.appendChild(row);
+  body.scrollTop = body.scrollHeight;
+}
+
+function sendMsg() {
+  const inp = document.getElementById('zyra-input');
+  const text = inp.value.trim();
+  if (!text) return;
+  inp.value = '';
+  addUserMsg(text);
+  setTimeout(() => handleInput(text), 350);
+}
+
+// ─── Tokeniser & smart matcher ───
+function tokenize(str) {
+  return str.toLowerCase().replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(Boolean);
+}
+function overlap(tokens, triggers) {
+  const sentence = tokens.join(' ');
+  let score = 0;
+  for (const kw of triggers) {
+    const k = kw.toLowerCase();
+    if (sentence.includes(k)) score += k.split(' ').length * 4;
+    else {
+      const kwT = k.split(' ');
+      for (const t of kwT) if (tokens.includes(t)) score += 1;
+    }
+  }
+  return score;
+}
+
+// ─── Full Knowledge Base v3 ───
+const KB = [
+
+  // GREETINGS
+  { id:'greet',
+    triggers:['hello','hi','hey','hai','hii','good morning','good afternoon','good evening','vanakkam','namaste','howdy','greetings','start','begin','help me'],
+    reply:"Hello! 👋 I'm <strong>Zyra</strong>, SIGC's virtual assistant! I can help you with programmes, admissions, fees, hostel, placement, events, alumnae and more.<br/>What would you like to know?",
+    chips:["Programmes Offered","Admissions Process","Hostel Facilities","Upcoming Events","Important Dates","About the College"]
+  },
+
+  // BYE / THANKS
+  { id:'bye',
+    triggers:['thank you','thanks','thank','bye','goodbye','ok thanks','great','helpful','that helps','appreciate'],
+    reply:"You're most welcome! 🌸 Feel free to ask anything anytime. For direct assistance:<br/><br/>📞 <strong>0431-2702797</strong> &nbsp;|&nbsp; ✉️ <strong>contact@sigc.edu</strong>",
+    chips:["More Questions","Admissions","Upcoming Events","Contact SIGC"]
+  },
+
+  // ABOUT
+  { id:'about',
+    triggers:['about sigc','about college','who founded','when founded','sigc history','history of sigc','established','founder','santhanam','what is sigc','tell me about sigc','sigc background','origin of sigc','1984','sigc established'],
+    reply:"🏛️ <strong>About Shrimati Indira Gandhi College (SIGC):</strong><br/><br/>📅 <strong>Founded:</strong> 1984 by <strong>Vidya Seva Ratnam K. Santhanam</strong><br/>👑 <strong>Named after:</strong> Former Prime Minister Indira Gandhi<br/>📍 <strong>Location:</strong> College Road, Chatram, Tiruchirappalli – 620 002<br/>👩‍🏫 <strong>Principal:</strong> Dr. P. Gajalakshmi<br/>🏆 <strong>NAAC:</strong> 'A' Grade (4th Cycle)<br/>🎓 <strong>Affiliated to:</strong> Bharathidasan University<br/>🏅 <strong>ISO 9001:2015</strong> Certified<br/><br/>From 2 courses & 10 teachers in 1984 → 43+ programmes & thousands of alumnae worldwide today.",
+    chips:["Vision & Mission","Leadership","NAAC Accreditation","World Records","Contact SIGC"],
+    nav:'about'
+  },
+
+  // VISION
+  { id:'vision',
+    triggers:['vision','mission','vision and mission','values','goal','objective','aim of sigc'],
+    reply:"🌟 <strong>Vision:</strong><br/>To become a premier center for higher education recognized for quality teaching, innovative research, and industry collaboration — nurturing women who contribute to society and global progress.<br/><br/>🎯 <strong>Mission:</strong><br/>To foster innovation, critical thinking, and ethical leadership through holistic education — empowering women from all backgrounds with knowledge, skills, and values to lead and serve.",
+    chips:["About the College","NAAC Accreditation","Programmes Offered"],
+    nav:'about'
+  },
+
+  // PRINCIPAL / LEADERSHIP
+  { id:'principal',
+    triggers:['principal','who is principal','current principal','gajalakshmi','head of college','leadership','management of sigc','former principal','past principal','who runs sigc'],
+    reply:"👩‍💼 <strong>SIGC Leadership:</strong><br/><br/>🎓 <strong>Current Principal:</strong> Dr. P. Gajalakshmi<br/><br/><strong>Former Principals:</strong><br/>• Ms. N.S. Jaya<br/>• Dr. T. Kamala<br/>• Dr. K. Meena<br/>• Dr. S. Vidhyalakshmi<br/><br/>Each leader has tirelessly advanced SIGC's academic excellence and national standing.",
+    chips:["About the College","Vision & Mission","Contact SIGC"],
+    nav:'about'
+  },
+
+  // ACCREDITATION
+  { id:'accreditation',
+    triggers:['naac','naac grade','naac a grade','4th cycle','accreditation','ugc','aicte','iso','recognition','affiliated','affiliation','bharathidasan university','approved','2f','12b','autonomous'],
+    reply:"🏛️ <strong>SIGC Accreditations & Recognitions:</strong><br/><br/>✅ <strong>NAAC 'A' Grade</strong> — 4th Cycle (Nationally Accredited)<br/>✅ <strong>Affiliated</strong> to Bharathidasan University, Tiruchirappalli<br/>✅ <strong>UGC</strong> — Recognized under Sections 2(f) & 12(b)<br/>✅ <strong>AICTE Approved</strong> — MBA & MCA (Full Time)<br/>✅ <strong>ISO 9001:2015</strong> Certified Institution<br/>✅ <strong>AWS & Cisco</strong> Centers of Excellence<br/>✅ <strong>Honeywell</strong> — 25 National Women Empowerment Centers",
+    chips:["About the College","Programmes Offered","Research"],
+    nav:'about'
+  },
+
+  // ALL PROGRAMMES
+  { id:'programmes_all',
+    triggers:['programmes offered','courses offered','all courses','all programmes','list of courses','what courses','what programmes','available courses','course list','programme list','courses available','what can i study','what to study','sigc courses'],
+    reply:"🎓 <strong>SIGC Programmes (43+ total):</strong><br/><br/>📘 <strong>UG (20 programmes)</strong> — B.Sc CS, BCA, Maths, Physics, Microbiology, Biochemistry, Biotechnology, IT, Fashion Tech, Chemistry, B.Com, BBA, B.Com BM, B.A. Economics, B.Litt Tamil, B.A. English, B.Com CA, B.Com CS, B.Sc AI/ML, B.Sc Data Science<br/><br/>📗 <strong>PG (12 programmes)</strong> — MBA, MCA, M.Sc CS, M.Sc IT, M.Com, M.Sc Microbiology, Biochemistry, Physics, Maths, Hospital Admin, MSW, M.A. Tamil<br/><br/>🔬 <strong>Ph.D (6)</strong> — CS, Maths, Microbiology, Management, Tamil, Commerce<br/><br/>📜 <strong>Diplomas & Certificates</strong> — PGDCA, E-Commerce, Bio-Informatics, Yoga, Fashion, BPO, Data Entry, Tailoring, English, Beauty Culture",
+    chips:["UG Programmes","PG Programmes","Ph.D Info","Diploma Programmes","Admissions Process"],
+    nav:'academics'
+  },
+
+  // UG
+  { id:'ug',
+    triggers:['ug programme','undergraduate','ug courses','bachelor','b.sc','bca','bba','b.com','b.a','b.litt','ug eligibility','ug admission','bachelor degree','ug list','undergraduate courses'],
+    reply:"🎓 <strong>UG Programmes at SIGC (20 programmes):</strong><br/><br/>• B.Sc. Computer Science — <em>12th with Maths</em><br/>• B.C.A — <em>12th with Maths</em><br/>• B.Sc. Mathematics (MCA/MCP) — <em>12th with Maths</em><br/>• B.Sc. Physics — <em>12th with Physics & Maths</em><br/>• B.Sc. Microbiology — <em>12th with Biology</em><br/>• B.Sc. Biochemistry — <em>12th with Chemistry/Biology</em><br/>• B.Sc. Biotechnology — <em>12th PCB, 55-60% aggregate</em><br/>• B.Sc. IT — <em>12th with Maths</em><br/>• B.Sc. Fashion Technology — <em>12th Pass</em><br/>• B.Sc. Chemistry — <em>12th with Physics & Chemistry</em><br/>• B.Com / BBA / B.Com CA / B.Com CS / B.Com BM — <em>12th with Commerce</em><br/>• B.A. Economics / B.A. English / B.Litt Tamil — <em>12th Pass</em><br/>• B.Sc. AI & ML / B.Sc. Data Science — <em>12th with Maths</em>",
+    chips:["PG Programmes","Ph.D Info","Admissions Process","Documents Required"],
+    nav:'academics'
+  },
+
+  // PG
+  { id:'pg',
+    triggers:['pg programme','postgraduate','pg courses','master','mba','mca','m.sc','m.com','msw','pg eligibility','pg admission','pg list','masters degree','post graduate'],
+    reply:"🎓 <strong>PG Programmes at SIGC (12 programmes):</strong><br/><br/>• <strong>MBA</strong> (AICTE) — Any Degree 50% + TANCET/CET<br/>• <strong>MCA</strong> (AICTE) — Bachelor's 50%, Maths + TANCET/CET<br/>• <strong>M.Sc CS / M.Sc IT</strong> — Degree with Maths/Stats<br/>• <strong>M.Com</strong> — B.Com / BBA or equivalent<br/>• <strong>M.Sc Microbiology / Biochemistry</strong> — B.Sc bio-science<br/>• <strong>M.Sc Physics</strong> — B.Sc Physics<br/>• <strong>M.Sc Mathematics</strong> — B.Sc Mathematics<br/>• <strong>M.Sc Hospital Administration</strong> — Any Graduation<br/>• <strong>M.S.W.</strong> — Any Graduation<br/>• <strong>M.A. Tamil</strong> — B.Litt Tamil",
+    chips:["UG Programmes","Ph.D Info","Admissions Process","Documents Required"],
+    nav:'academics'
+  },
+
+  // PHD
+  { id:'phd',
+    triggers:['phd','ph.d','doctorate','research degree','phd programme','phd admission','doctoral','phd eligibility','doctor of philosophy','research scholar'],
+    reply:"🔬 <strong>Ph.D Programmes at SIGC (6 disciplines):</strong><br/><br/>1️⃣ Ph.D. Computer Science<br/>2️⃣ Ph.D. Mathematics<br/>3️⃣ Ph.D. Microbiology<br/>4️⃣ Ph.D. Management<br/>5️⃣ Ph.D. Tamil<br/>6️⃣ Ph.D. Commerce<br/><br/>📋 Governed by <strong>Ph.D Regulations 2024</strong><br/>🌐 sigc.edu/research &nbsp;|&nbsp; 📞 0431-2702797",
+    chips:["Research Overview","Admissions Process","Contact SIGC"],
+    nav:'academics'
+  },
+
+  // DIPLOMA
+  { id:'diploma',
+    triggers:['diploma','certificate course','pgdca','bio-informatics diploma','yoga diploma','fashion diploma','bpo diploma','data entry course','beauty culture','functional english','tailoring course','certificate programme'],
+    reply:"📜 <strong>Diploma & Certificate Programmes at SIGC:</strong><br/><br/><strong>🎖️ PG Diplomas:</strong><br/>• PG Diploma in Computer Applications (PGDCA)<br/>• PG Diploma in E-Commerce<br/>• PG Diploma in Bio-Informatics<br/><br/><strong>🎖️ Diplomas:</strong><br/>• Diploma in Yoga<br/>• Diploma in Fashion Technology<br/>• Diploma in BPO<br/><br/><strong>🎖️ Certificate Courses:</strong><br/>• Data Entry Operations<br/>• Beauty Culture & Health Care<br/>• Functional English<br/>• Tailoring & Embroidery",
+    chips:["UG Programmes","Admissions Process","Contact SIGC"],
+    nav:'academics'
+  },
+
+  // SPECIFIC — CS/IT
+  { id:'cs_course',
+    triggers:['computer science course','bsc cs','bsc computer science','msc cs','msc computer science','cs department','it course','information technology','bca course','mca course'],
+    reply:"💻 <strong>Computer Science & IT at SIGC:</strong><br/><br/>🎓 B.Sc. Computer Science — 12th with Maths<br/>🎓 B.C.A — 12th with Maths<br/>🎓 B.Sc. IT — 12th with Maths<br/>🎓 B.Sc. AI & Machine Learning — 12th with Maths<br/>🎓 B.Sc. Data Science — 12th with Maths<br/>🎓 M.Sc. CS — Degree with Maths/Stats<br/>🎓 M.Sc. IT — Degree with Maths/Stats<br/>🎓 MCA (AICTE) — Bachelor's 50% + TANCET/CET<br/>🔬 Ph.D. Computer Science",
+    chips:["Admissions Process","Placement Stats","AWS & Cisco Certifications"],
+    nav:'academics'
+  },
+
+  // SPECIFIC — MBA
+  { id:'mba_course',
+    triggers:['mba course','mba programme','mba eligibility','mba admission','master of business administration','management course'],
+    reply:"💼 <strong>MBA at SIGC:</strong><br/><br/>📋 <strong>Programme:</strong> Master of Business Administration (Full Time) — AICTE Approved<br/>📋 <strong>Eligibility:</strong> Any Degree with minimum <strong>50% marks</strong> + valid TANCET or CET score<br/>⏱️ <strong>Duration:</strong> 2 Years<br/>🏛️ Bharathidasan University affiliated<br/><br/>📞 <strong>0431-2702797</strong> &nbsp;|&nbsp; 🌐 sigc.edu/admissions",
+    chips:["Admissions Process","Documents Required","Placement Stats","Contact SIGC"],
+    nav:'academics'
+  },
+
+  // SPECIFIC — AI/ML
+  { id:'ai_ml',
+    triggers:['artificial intelligence','machine learning','data science','bsc ai','ai ml','ai programme','data analytics','ai course'],
+    reply:"🤖 <strong>AI & Data Science at SIGC:</strong><br/><br/>🎓 <strong>B.Sc. Artificial Intelligence & Machine Learning</strong><br/>Eligibility: 12th with Mathematics<br/><br/>🎓 <strong>B.Sc. Data Science</strong><br/>Eligibility: 12th with Mathematics<br/><br/>Students gain industry-ready skills and are eligible for AWS Cloud Practitioner & Microsoft Azure AI certifications.",
+    chips:["AWS & Cisco Certifications","Admissions Process","Placement Stats"],
+    nav:'academics'
+  },
+
+  // ADMISSIONS
+  { id:'admissions',
+    triggers:['admission','admissions','how to apply','apply','application','apply online','how to join','joining','enroll','enrolment','admission process','admission procedure','how do i apply','want to join','take admission','registration','register'],
+    reply:"📋 <strong>Admission Process at SIGC (2025-26):</strong><br/><br/><strong>Step 1</strong> — Check eligibility for UG / PG / Ph.D<br/><strong>Step 2</strong> — Apply online at <a href='https://www.sigc.edu/admissions' target='_blank'>sigc.edu/admissions</a><br/><strong>Step 3</strong> — Merit-based selection; MBA/MCA need valid TANCET / CET score<br/><strong>Step 4</strong> — Pay fees & submit verified documents<br/><br/>📞 <strong>0431-2702797 / 2701453</strong><br/>✉️ <strong>contact@sigc.edu</strong>",
+    chips:["Documents Required","UG Eligibility","PG Eligibility","Important Dates","Fees & Scholarships"],
+    nav:'admissions'
+  },
+
+  // DOCUMENTS
+  { id:'documents',
+    triggers:['documents','document required','what documents','documents needed','what to bring','papers needed','certificates needed','required documents','document checklist'],
+    reply:"📄 <strong>Documents Required for SIGC Admission:</strong><br/><br/>✅ 10th Standard Mark Sheet<br/>✅ 12th Standard Mark Sheet<br/>✅ Transfer Certificate (TC)<br/>✅ Community Certificate<br/>✅ Aadhar Card (original + photocopy)<br/>✅ Passport size photographs (4–6 copies)<br/>✅ Income Certificate (if applicable)<br/>✅ Conduct Certificate<br/>✅ TANCET / CET Score Card <em>(MBA & MCA only)</em><br/>✅ Nativity Certificate (if applicable)",
+    chips:["Admissions Process","UG Eligibility","PG Eligibility","Contact SIGC"],
+    nav:'admissions'
+  },
+
+  // IMPORTANT DATES
+  { id:'important_dates',
+    triggers:['important dates','key dates','last date','deadline','admission date','application last date','exam date','result date','schedule','timetable','when is admission','when to apply','application deadline','last day to apply','admission schedule','academic calendar','calendar'],
+    reply:"📅 <strong>Important Dates — 2025-26 Academic Year:</strong><br/><br/>🗓️ <strong>Application Opens:</strong> April 2025<br/>🗓️ <strong>Last Date to Apply (UG):</strong> June 2025<br/>🗓️ <strong>Last Date to Apply (PG):</strong> July 2025<br/>🗓️ <strong>TANCET / CET Results:</strong> Check official TN Govt website<br/>🗓️ <strong>Counselling / Allotment:</strong> July–August 2025<br/>🗓️ <strong>Classes Commence:</strong> August 2025<br/><br/>⚠️ <em>Dates are subject to university / government notifications. Always confirm at:</em><br/>📞 <strong>0431-2702797</strong> &nbsp;|&nbsp; 🌐 sigc.edu",
+    chips:["Admissions Process","Documents Required","UG Eligibility","Contact SIGC"],
+    nav:'admissions'
+  },
+
+  // FEES
+  { id:'fees',
+    triggers:['fee','fees','fee structure','tuition fee','how much fee','cost','annual fee','semester fee','total fee','fee amount','scholarship','financial aid','financial assistance','concession','stipend','bursary','how much does it cost'],
+    reply:"💰 <strong>Fees & Financial Support at SIGC:</strong><br/><br/>Exact fees vary by programme (UG, PG, Ph.D). Contact the Admissions Office for the current fee schedule.<br/><br/>🎁 <strong>Financial Assistance Available:</strong><br/>• Government scholarships — SC/ST/BC/MBC categories<br/>• Merit-cum-means scholarships (Central & State)<br/>• Financial aid for differently-abled students<br/>• Support for economically weaker sections<br/><br/>📞 <strong>0431-2702797 / 2701453</strong><br/>✉️ <strong>contact@sigc.edu</strong>",
+    chips:["Admissions Process","Documents Required","Contact SIGC"],
+    nav:'admissions'
+  },
+
+  // HOSTEL
+  { id:'hostel',
+    triggers:['hostel','accommodation','hostel facilities','where to stay','outstation','boarding','hostel room','hostel fee','hostel food','hostel rules','hostel address','ladies hostel','girls hostel','hostel availability','hostel admission','residential','stay at sigc','can i stay'],
+    reply:"🏠 <strong>Hostel Facilities at SIGC:</strong><br/><br/>SIGC provides safe, comfortable hostel accommodation for outstation women students.<br/><br/>🛏️ <strong>Accommodation:</strong> Well-furnished rooms (single, double & triple sharing)<br/>🍽️ <strong>Meals:</strong> Nutritious vegetarian breakfast, lunch & dinner provided<br/>🔒 <strong>Security:</strong> 24×7 security, CCTV surveillance, secure entrance<br/>🚿 <strong>Amenities:</strong> Hot water, clean washrooms, study hall, common room<br/>🏥 <strong>Medical:</strong> First aid facility; nearby hospital support<br/>💰 <strong>Hostel Fee:</strong> ₹25,500 per semester<br/>📵 <strong>Rules:</strong> Strict in-time policy; no unauthorized visitors; mobile usage restricted during study hours<br/><br/>🚌 <strong>College Bus Facility:</strong> Available for day scholars. Bus fees vary by distance — <strong>₹5,000 to ₹9,500 per semester</strong><br/><br/>📞 For availability & admission:<br/><strong>0431-2702797 / 2701453</strong> &nbsp;|&nbsp; ✉️ contact@sigc.edu",
+    chips:["Bus Facilities","Admissions Process","Fees & Scholarships","Contact SIGC"],
+    nav:'infrastructure'
+  },
+
+  { id:'bus',
+    triggers:['bus','bus facility','college bus','transport','transportation','bus fee','bus fees','bus route','bus service','travel to college','daily commute','day scholar','how to travel'],
+    reply:"🚌 <strong>College Bus Facility at SIGC:</strong><br/><br/>SIGC provides a dedicated college bus service for day scholars commuting from various parts of Tiruchirappalli and surrounding areas.<br/><br/>💰 <strong>Bus Fee:</strong> ₹5,000 to ₹9,500 per semester (varies by distance/route)<br/>🗺️ <strong>Coverage:</strong> Multiple routes covering Trichy city and nearby areas<br/>⏰ <strong>Timings:</strong> Morning pick-up and evening drop as per college schedule<br/><br/>📞 For route details & registration:<br/><strong>0431-2702797 / 2701453</strong> &nbsp;|&nbsp; ✉️ contact@sigc.edu",
+    chips:["Hostel Facilities","Contact SIGC","Fees & Scholarships"],
+    nav:'infrastructure'
+  },
+
+  // UPCOMING EVENTS
+  { id:'events',
+    triggers:['upcoming events','events','what events','college events','cultural events','annual day','sports day','fest','seminar','workshop','conference','function','programme','celebration','event schedule','next event','sigc events','college fest','techfest','culturals','ai summit','science day','national conference'],
+    reply:"🎉 <strong>Upcoming Events at SIGC (2026):</strong><br/><br/>🔬 <strong>National Conference</strong> — <em>February 20, 2026</em><br/>Research presentations, guest lectures & academic paper discussions<br/><br/>🧪 <strong>National Science Day</strong> — <em>February 25, 2026</em><br/>Science exhibitions, experiments, talks & student demonstrations<br/><br/>🤖 <strong>AI Summit</strong> — <em>February 28, 2026</em><br/>Artificial Intelligence symposium, industry talks, student AI projects & demos<br/><br/>━━━━━━━━━━━━━━━━━━━<br/>🎨 <strong>Annual Cultural Fest</strong> — Music, dance, drama, fine arts competitions<br/>🏅 <strong>Sports Day</strong> — Athletics, team sports, prize distribution<br/>🌺 <strong>College Annual Day</strong> — Prizes, cultural performances, chief guests<br/>🎓 <strong>Graduation / Convocation</strong> — For outgoing students<br/>💼 <strong>Campus Placement Drives</strong> — TCS, Wipro, Infosys & more<br/><br/>📣 <em>Stay updated at:</em> 📞 <strong>0431-2702797</strong> &nbsp;|&nbsp; 🌐 sigc.edu",
+    chips:["Important Dates","National Conference","AI Summit","Contact SIGC"],
+    nav:'home'
+  },
+
+  // ALUMNAE
+  { id:'alumnae',
+    triggers:['alumnae','alumni','old student','past student','former student','alumna','graduate','sigc alumni','alumnae association','old students association','connect with alumni','alumni network','alumnae meet','alumni event','alumni registration'],
+    reply:"🌟 <strong>SIGC Alumnae Network:</strong><br/><br/>SIGC has a proud and active alumnae community spanning thousands of graduates across India and the world.<br/><br/>🤝 <strong>Alumnae Association</strong> — Registered organization connecting past and present students<br/>🌍 <strong>Global Network</strong> — Alumnae in IT, healthcare, education, government, arts, business & research<br/>📅 <strong>Alumnae Meet</strong> — Annual reunion event to reconnect, network & mentor current students<br/>💼 <strong>Mentorship</strong> — Alumnae regularly guide current students in placements & careers<br/>🏆 <strong>Distinguished Alumnae</strong> — Award recognitions for outstanding contributions<br/>📢 <strong>Guest Lectures</strong> — Alumnae invited to share industry experience with students<br/><br/>📞 To register or connect with the Alumnae Association:<br/><strong>0431-2702797</strong> &nbsp;|&nbsp; ✉️ contact@sigc.edu<br/>🌐 sigc.edu/alumnae",
+    chips:["About the College","Upcoming Events","Contact SIGC","Placement Stats"],
+    nav:'about'
+  },
+
+  // PLACEMENT
+  { id:'placement',
+    triggers:['placement','training and placement','placement rate','recruitment','campus placement','job','salary','package','ctc','lpa','recruiter','company','companies','hiring','placement record','placed','placement cell','training placement','career','get job after sigc'],
+    reply:"💼 <strong>Training & Placement at SIGC:</strong><br/><br/>📊 <strong>Placement Rate:</strong> 95%<br/>💰 <strong>Highest Package:</strong> 6 LPA<br/>💰 <strong>Average Package:</strong> 3 LPA<br/><br/>🏢 <strong>Top Recruiters:</strong><br/>TCS • Wipro • Infosys • HCL • Zoho • Cognizant • Capgemini • Tech Mahindra • Omega Healthcare • HDFC Bank<br/><br/>📚 <strong>Pre-Placement Training Includes:</strong><br/>• Resume & CV building workshops<br/>• Mock interviews & group discussion preparation<br/>• Soft skills, communication & personality development<br/>• Industrial visits & internship programmes",
+    chips:["AWS & Cisco Certifications","Training Programs","Upcoming Events","Contact SIGC"],
+    nav:'placement'
+  },
+
+  // AWS/CISCO
+  { id:'aws_cisco',
+    triggers:['aws','cisco','azure','microsoft','cloud computing','cyber security','cloud certification','honeywell','center of excellence','coe','women empowerment center'],
+    reply:"🏆 <strong>Industry Certifications & Centers of Excellence:</strong><br/><br/>☁️ <strong>AWS Center of Excellence</strong> — Cloud Practitioner Certification training<br/>🔒 <strong>Cisco Center of Excellence</strong> — Cyber Security Essentials award<br/>🤖 <strong>Microsoft Azure AI Fundamentals</strong> — 104 students certified<br/>👩‍💼 <strong>Honeywell</strong> — 1 of 25 national Women Empowerment Centers of Excellence<br/><br/>These certifications are integrated into student training & significantly boost employability.",
+    chips:["Placement Stats","AI & Data Science","Research"],
+    nav:'placement'
+  },
+
+  // INFRASTRUCTURE
+  { id:'infrastructure',
+    triggers:['infrastructure','campus facilities','buildings','smart classroom','ict classroom','computer lab','language lab','sports ground','playground','canteen','campus area','campus size','sigc campus','facilities at sigc'],
+    reply:"🏗️ <strong>SIGC Campus Infrastructure:</strong><br/><br/>🏢 <strong>12 Buildings</strong> on 9.04-acre campus<br/>📚 <strong>110 Classrooms</strong> including <strong>27 ICT Smart Classrooms</strong><br/>💻 <strong>5 Computer Laboratories</strong> (fully air-conditioned)<br/>🗣️ <strong>Language Lab</strong> — 100 software licenses<br/>📖 <strong>3 OPAC Libraries</strong> — 51,914+ book volumes<br/>🏃 <strong>Sports Ground</strong> — 5.11 acres<br/>🍽️ <strong>On-campus Canteen</strong><br/>🏠 <strong>Hostel</strong> for outstation students<br/>♿ <strong>Fully Accessible</strong> — lifts & ramps in all buildings",
+    chips:["Hostel Facilities","Library Details","Clubs & Activities","Contact SIGC"],
+    nav:'infrastructure'
+  },
+
+  // LIBRARY
+  { id:'library',
+    triggers:['library','books available','e-resources','ieee','ebsco','jgate','journal','magazine','opac','volumes','digital library','e-library','library hours','library facilities'],
+    reply:"📚 <strong>SIGC Library:</strong><br/><br/>• <strong>3 OPAC-automated Libraries</strong> — MCA, MBA & General<br/>• <strong>51,914+ book volumes</strong><br/>• <strong>30 Magazines</strong> and <strong>50 Journals</strong><br/>• <strong>e-Resources:</strong> IEEE, ASPP, EBSCO, JGATE<br/>• Separate subject libraries for professional programmes<br/>• Open to all enrolled students and faculty members",
+    chips:["Infrastructure","Research","Academics"],
+    nav:'infrastructure'
+  },
+
+  // CLUBS
+  { id:'clubs',
+    triggers:['club','clubs','extracurricular','extra curricular','rotaract','nss','yrc','youth red cross','fine arts','fine arts club','gender club','exnora','quiz club','sports committee','consumer club','student activities','iic activities','co-curricular','student life','committees','college life','cultural activities','uba','literary','language club'],
+    reply:"🌈 <strong>Extra-Curricular Activities at SIGC:</strong><br/><br/>🎨 <strong>Fine Arts Club</strong> — Classical music, dance, drama, painting, rangoli, street plays & inter-collegiate cultural competitions<br/>🌿 <strong>Exnora Club</strong> — Environmental drives, plastic-free campaigns, tree plantation & Swachh Bharat activities<br/>🔄 <strong>Rotaract Club</strong> — Community service, blood donation, leadership training (Rotary International)<br/>🚑 <strong>Youth Red Cross (YRC)</strong> — First aid, disaster preparedness, health camps & blood donation drives<br/>⚖️ <strong>Gender Club</strong> — Women's rights, self-defence workshops, seminars on gender equality<br/>🤝 <strong>NSS</strong> — Village adoption, literacy drives, health camps & social welfare (UGC certified)<br/>❓ <strong>Quiz Club</strong> — Inter-collegiate quiz competitions, current affairs, science & literary events<br/>🛒 <strong>Consumer Club</strong> — Consumer rights awareness, market safety & District Consumer Forum collaboration<br/>🏅 <strong>Sports Committee</strong> — Athletics, volleyball, basketball, kabaddi, chess; University-level competitions<br/>💡 <strong>IIC</strong> — Smart India Hackathon, StartupTN, IPR & innovation challenges<br/>🌐 <strong>UBA</strong> — Unnat Bharat Abhiyan village development programmes<br/>📚 <strong>Literary Clubs</strong> — Tamil & English literary associations, elocution, debates & poetry meets",
+    chips:["Upcoming Events","Fine Arts Details","Sports","Contact SIGC"],
+    nav:'infrastructure'
+  },
+
+  // RESEARCH
+  { id:'research',
+    triggers:['research','r and d','research cell','research publications','publication','patent','grants','funded project','research grant','research policy','research programme','research at sigc','faculty research'],
+    reply:"🔬 <strong>Research at SIGC:</strong><br/><br/>📋 Formal <strong>Research Policy</strong> & dedicated R&D Cell<br/>📰 Faculty publish in <strong>national & international journals</strong><br/>📘 <strong>Books & Book Chapters</strong> authored by faculty<br/>💡 <strong>Patents</strong> filed & granted in multiple domains<br/>💰 <strong>Government & funded research grants</strong> received<br/>🎓 <strong>Ph.D. in 6 disciplines</strong><br/>🌍 <strong>Two World Records</strong> — America Mutamil University, USA (2021 & 2022)",
+    chips:["Ph.D Info","World Records","IIC Innovation","Contact SIGC"],
+    nav:'research'
+  },
+
+  // WORLD RECORDS
+  { id:'world_records',
+    triggers:['world record','world records','america mutamil','kaviyarangam','valluvam','marabu','achievement','world achievement','sigc achievement','record'],
+    reply:"🌍 <strong>SIGC's World Records</strong> — Conferred by America Mutamil University, USA:<br/><br/>🏆 <strong>October 2021:</strong><br/>World Record for a continuous <strong>16-hour Marabu Kaviyarangam, Karutharangam & Vazhtharangam</strong><br/><br/>🏆 <strong>February 2022:</strong><br/>World Record for a continuous <strong>16-hour programme on Valluvam Kattum Vazhviyal</strong><br/><br/>A reflection of SIGC's deep commitment to Tamil language, culture, and academic innovation.",
+    chips:["Research","About the College","Upcoming Events"],
+    nav:'research'
+  },
+
+  // IIC
+  { id:'iic',
+    triggers:['iic','innovation council','startup','entrepreneurship','nisp','startup policy','incubation','innovate','innovation cell','institution innovation council'],
+    reply:"💡 <strong>IIC — Institution Innovation Council at SIGC:</strong><br/><br/>• Registered under <strong>MoE's Innovation Cell</strong> (Govt. of India)<br/>• Promotes <strong>start-up culture, innovation & entrepreneurship</strong><br/>• <strong>NISP</strong> — SIGC Innovation & Startup Policy in place<br/>• IPR workshops, patent awareness & filing support<br/>• Collaboration with national & international institutions<br/>• Students participate in StartupTN, Smart India Hackathon<br/>• Annual IIC activity report submitted to MoE",
+    chips:["Research","Upcoming Events","Placement Stats","Clubs & Activities"],
+    nav:'research'
+  },
+
+  // CONTACT
+  { id:'contact',
+    triggers:['contact','contact us','phone number','email','email id','sigc address','sigc location','sigc phone','sigc email','get in touch','call sigc','reach sigc','where is sigc','sigc website','office number'],
+    reply:"📞 <strong>Contact SIGC:</strong><br/><br/>📍 Post Box No. 369, College Road, Chatram Bus Stand,<br/>Tiruchirappalli – 620 002, Tamil Nadu, India<br/>📞 <strong>0431 – 2702797 / 2701453</strong><br/>✉️ <strong>contact@sigc.edu</strong><br/>🌐 <strong>www.sigc.edu</strong><br/><br/>🚉 2 km from Tiruchirappalli Railway Station<br/>✈️ 15 km from Tiruchirappalli Airport<br/>🚌 Opposite Chatram Bus Stand",
+    chips:["Admissions Process","Hostel Facilities","Upcoming Events","Alumnae Network"],
+    nav:'contact'
+  },
+
+  // LOCATION
+  { id:'location',
+    triggers:['how to reach','how to come','directions','distance from','railway station','airport','bus stand','chatram','trichy location','tiruchirappalli location','bus route','near railway','route to sigc'],
+    reply:"🗺️ <strong>How to Reach SIGC, Tiruchirappalli:</strong><br/><br/>📍 College Road, Chatram Bus Stand, Tiruchirappalli – 620 002<br/><br/>🚉 <strong>Railway Station</strong> — 2 km (~10 mins by auto/bus)<br/>✈️ <strong>Tiruchirappalli Airport</strong> — 15 km (~30 mins by cab)<br/>🚌 <strong>Chatram Bus Stand</strong> — Directly opposite the college<br/><br/>SIGC is centrally located — easily reachable from all parts of Tamil Nadu.",
+    chips:["Contact SIGC","Hostel Facilities","Admissions Process"],
+    nav:'contact'
+  }
+];
+
+// ─── Main Handler ───
+function handleInput(rawText) {
+  const q = rawText.toLowerCase().trim();
+  document.querySelectorAll('.quick-chips').forEach(c => c.remove());
+  const tokens = tokenize(q);
+
+  let bestEntry = null, bestScore = 0;
+  for (const entry of KB) {
+    const score = overlap(tokens, entry.triggers);
+    if (score > bestScore) { bestScore = score; bestEntry = entry; }
+  }
+
+  if (bestEntry && bestScore >= 1) {
+    if (bestEntry.nav) showSection(bestEntry.nav);
+    addZyraMsg(bestEntry.reply, bestEntry.chips);
+  } else {
+    // Try to suggest closest topic
+    addZyraMsg(
+      "I want to give you the most accurate answer! Please try one of these topics, or rephrase your question:",
+      ["Programmes Offered","Admissions Process","Hostel Facilities","Upcoming Events","Important Dates","Alumnae Network","Fees & Scholarships","Placement Stats","Contact SIGC","Research"]
+    );
+  }
+}
+</script>
+
+</body>
+</html>
